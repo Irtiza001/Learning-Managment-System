@@ -1,0 +1,29 @@
+<div id="<%= dom_id course %>" class="card card-compact bg-base-300 mb-10 shadow-xl">
+  <div class="card-body">
+    <p class="my-5">
+      <strong class="card-title"><%= course.name %></strong>
+    </p>
+
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Start date:</strong>
+      <%= course.start_date %>
+    </p>
+
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Duration:</strong>
+      <%= course.duration %>
+    </p>
+
+    <p class="my-5">
+      <strong class="block font-medium mb-1">Price:</strong>
+      <%= course.price %>
+    </p>
+
+  <% if action_name != "show" %>
+    <div class="card-actions">
+      <%= link_to "Show this course", course, class: "btn btn-primary" %>
+      <%= link_to "Edit this course", edit_course_path(course), class: "btn" %>
+    </div>
+  <% end %>
+  </div>
+</div>

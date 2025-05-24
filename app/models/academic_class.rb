@@ -1,0 +1,6 @@
+class AcademicClass < ApplicationRecord
+  has_many :attendances
+  has_many :users, through: :attendances
+  
+  validates :name, presence: true, uniqueness: true
+end
