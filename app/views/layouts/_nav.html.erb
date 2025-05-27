@@ -1,0 +1,108 @@
+<div>
+  <div class="drawer-content flex flex-col">
+    <!-- Navbar -->
+    <div class="w-full navbar bg-base-300">
+      <div class="flex-none lg:hidden">
+        <label for="my-drawer-2" aria-label="open sidebar" class="btn btn-square btn-ghost">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-6 h-6 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+        </label>
+      </div>
+      <div class="flex-1 px-2 mx-2">
+        <div class="header-title">
+          <img src="https://flowbite.com/docs/images/logo.svg" class="h-8 me-3" alt="ThinkHub Logo" />
+          <span class="font-bold">
+            <% if controller.controller_name == "pages" %>
+              <% if controller.action_name == "home" %>
+                Dashboard
+              <% else %>
+                <%= controller.action_name.humanize %>
+              <% end %>
+            <% elsif controller.controller_name == "users" %>
+              <%= case controller.action_name
+                  when "show"
+                    "Profile"
+                  when "edit"
+                    "Edit Profile"
+                  else
+                    controller.action_name.humanize
+                  end %>
+            <% else %>
+              <%= controller.controller_name.humanize %>
+            <% end %>
+          </span>
+        </div>
+      </div>
+      <% if user_signed_in? %>
+        <div class="user-actions">
+          <div class="notification-dropdown">
+            <button class="notification-btn">
+              <i class="fas fa-bell"></i>
+              <span class="badge"></span>
+            </button>
+            <div class="dropdown-content">
+              <div class="notification-item">You have no notifications</div>
+            </div>
+          </div>
+          
+          <div class="user-dropdown">
+            <button class="user-btn">
+              <% if current_user.profile_picture.attached? %>
+                <%= image_tag current_user.profile_picture, class: "user-avatar" %>
+              <% else %>
+                <i class="fas fa-user-circle user-avatar-icon"></i>
+              <% end %>
+            </button>
+            <div class="dropdown-content">
+              <div class="user-name"><%= current_user.name %></div>
+              <ul>
+                <li>
+                  <%= link_to profile_path do %>
+                    <i class="fas fa-user"></i> Profile
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to settings_path do %>
+                    <i class="fas fa-cog"></i> Settings
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_user_session_path, data: { turbo_method: :delete } do %>
+                    <i class="fas fa-sign-out-alt"></i> Sign Out
+                  <% end %>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      <% else %>
+        <div class="auth-buttons">
+          <%= link_to "Sign in", new_user_session_path, class: "btn-sign-in" %>
+          <%= link_to "Register", new_user_registration_path, class: "btn-register" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="page-title">
+  <% if controller.controller_name == "pages" %>
+    <% if controller.action_name == "home" %>
+      <h1>Dashboard</h1>
+    <% else %>
+      <h1><%= controller.action_name.humanize %></h1>
+    <% end %>
+  <% elsif controller.controller_name == "users" %>
+    <h1>
+      <%= case controller.action_name
+          when "show"
+            "Profile"
+          when "edit"
+            "Edit Profile"
+          else
+            controller.action_name.humanize
+          end %>
+    </h1>
+  <% else %>
+    <h1><%= controller.controller_name.humanize %></h1>
+  <% end %>
+</div>

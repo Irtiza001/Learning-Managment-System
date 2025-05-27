@@ -1,0 +1,50 @@
+<div class="blog-container">
+  <% if notice.present? %>
+    <div class="alert alert-success">
+      <i class="fas fa-check-circle"></i>
+      <span><%= notice %></span>
+    </div>
+  <% end %>
+
+  <div class="blog-header">
+    <h1 class="blog-title"><%= @blog.title %></h1>
+    <div class="blog-meta">
+      <div class="blog-author">
+        <i class="fas fa-user-circle"></i>
+        <span><%= @blog.author.name %></span>
+      </div>
+      <div class="blog-date">
+        <i class="fas fa-calendar-alt"></i>
+        <span><%= @blog.created_at.strftime("%B %d, %Y") %></span>
+      </div>
+    </div>
+  </div>
+
+  <div class="blog-featured-image">
+    <% if @blog.title_image.attached? %>
+      <%= image_tag @blog.title_image, alt: @blog.title %>
+    <% else %>
+      <%= image_tag "https://media.coschedule.com/uploads/2021/03/52a85a8d-74c3-413f-9703-865ad8d604a0_catchy-blog-title-formulas.gif", alt: "Default blog image" %>
+    <% end %>
+  </div>
+
+  <div class="blog-content">
+    <%= @blog.content.html_safe %>
+  </div>
+
+  <div class="detail-actions">
+    <%= link_to blogs_path, class: "btn btn-light" do %>
+      <i class="fas fa-arrow-left mr-2"></i>Back
+    <% end %>
+    
+    <% if current_user && current_user.id == @blog.author_id %>
+      <%= link_to edit_blog_path(@blog), class: "btn btn-info" do %>
+        <i class="fas fa-edit mr-2"></i>Edit
+      <% end %>
+      
+      <%= button_to blog_path(@blog), method: :delete, class: "btn btn-danger", style: "min-width: 120px;", form: { data: { turbo_confirm: "Are you sure you want to delete this blog?" } } do %>
+        <i class="fas fa-trash-alt mr-2"></i>Delete
+      <% end %>
+    <% end %>
+  </div>
+</div>

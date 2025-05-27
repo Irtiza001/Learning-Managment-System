@@ -1,0 +1,112 @@
+<div class="login-container">
+  <div class="login-box">
+    <div class="login-header">
+      <h1>Sign up</h1>
+    </div>
+
+    <div class="login-form">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+        <div class="mt-4">
+          <%= render "shared/error_messages", object: resource %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :name, class: "form-label" %>
+          <%= f.text_field :name, required: true, autofocus: true, autocomplete: "name", class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :email, class: "form-label" %>
+          <%= f.email_field :email, required: true, autocomplete: "email", class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password, class: "form-label" %>
+          <% if @minimum_password_length %>
+            <span class="text-muted">(<%= @minimum_password_length %> characters minimum)</span>
+          <% end %>
+          <%= f.password_field :password, required: true, autocomplete: "new-password", class: "form-control" %>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :password_confirmation, class: "form-label" %>
+          <%= f.password_field :password_confirmation, required: true, autocomplete: "new-password", class: "form-control" %>
+        </div>
+
+        <div class="form-actions">
+          <%= f.button :submit, "Sign up", class: "btn btn-primary login-button" %>
+        </div>
+        
+        <div class="login-actions">
+          <%= link_to "Back to login", new_session_path(resource_name), class: "btn btn-light" %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<style>
+  .login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    background-color: #f8f9fa;
+  }
+  
+  .login-box {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    max-width: 450px;
+    width: 100%;
+  }
+  
+  .login-header {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  
+  .login-header h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #2c3e50;
+  }
+  
+  .login-form {
+    width: 100%;
+  }
+  
+  .form-actions {
+    margin-top: 25px;
+    margin-bottom: 20px;
+  }
+  
+  .login-button {
+    width: 100%;
+    padding: 10px;
+    font-weight: 500;
+  }
+  
+  .login-actions {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    justify-content: center;
+  }
+  
+  @media (max-width: 576px) {
+    .login-box {
+      padding: 25px;
+    }
+    
+    .login-actions {
+      flex-direction: column;
+    }
+    
+    .login-actions .btn {
+      width: 100%;
+    }
+  }
+</style>

@@ -1,0 +1,50 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <div class="alert alert-success">
+      <i class="fas fa-check-circle"></i>
+      <span><%= notice %></span>
+    </div>
+  <% end %>
+
+  <div class="section-header">
+    <h1>Blogs</h1>
+    <%= link_to new_blog_path, class: "btn btn-primary" do %>
+      <i class="fas fa-plus-circle mr-2"></i>New Blog
+    <% end %>
+  </div>
+
+  <div class="blog-grid">
+    <% @blogs.each do |blog| %>
+      <div class="blog-card">
+        <div class="blog-card-image">
+          <% if blog.title_image.attached? %>
+            <%= image_tag blog.title_image, alt: blog.title %>
+          <% else %>
+            <%= image_tag "https://media.coschedule.com/uploads/2021/03/52a85a8d-74c3-413f-9703-865ad8d604a0_catchy-blog-title-formulas.gif", alt: "Default blog image" %>
+          <% end %>
+        </div>
+        <div class="blog-card-content">
+          <h3 class="blog-card-title"><%= blog.title %></h3>
+          <div class="blog-card-info">
+            <div class="blog-card-author">
+              <i class="fas fa-user-circle"></i>
+              <span><%= blog.author.name %></span>
+            </div>
+            <div class="blog-card-date">
+              <i class="fas fa-calendar-alt"></i>
+              <span><%= blog.created_at.strftime("%b %d, %Y") %></span>
+            </div>
+          </div>
+          <p class="blog-card-excerpt">
+            <%= truncate(strip_tags(blog.content), length: 120) %>
+          </p>
+          <div class="blog-card-actions">
+            <%= link_to blog, class: "btn btn-primary btn-sm" do %>
+              <i class="fas fa-eye mr-1"></i>Read More
+            <% end %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

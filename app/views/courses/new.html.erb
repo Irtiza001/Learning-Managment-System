@@ -1,0 +1,13 @@
+<div class="detail-container">
+  <div class="detail-header">
+    <h1>New Course</h1>
+  </div>
+
+  <%= render "form", course: @course %>
+
+  <div class="detail-actions">
+    <%= link_to courses_path, class: "btn btn-light" do %>
+      <i class="fas fa-arrow-left mr-2"></i>Back
+    <% end %>
+  </div>
+</div>

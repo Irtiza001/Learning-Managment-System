@@ -1,0 +1,114 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <div class="alert alert-success">
+      <i class="fas fa-check-circle"></i>
+      <span><%= notice %></span>
+    </div>
+  <% end %>
+
+  <h1 class="font-bold text-4xl mb-8">Your Grades & Feedback</h1>
+
+  <!-- Using custom CSS classes for guaranteed horizontal layout -->
+  <div class="grades-cards-container">
+    <div class="grade-card">
+      <h2>Web Development</h2>
+      <div class="grade-card-info">
+        <span>Final Grade: </span>
+        <span class="font-medium">89%</span>
+      </div>
+      <div class="grade-card-info">
+        <span>GPA: </span>
+        <span class="font-medium">3.7</span>
+      </div>
+      <div class="grade-card-info">
+        <span>Attendance: </span>
+        <span class="font-medium">95%</span>
+      </div>
+    </div>
+
+    <div class="grade-card">
+      <h2>Database Systems</h2>
+      <div class="grade-card-info">
+        <span>Final Grade: </span>
+        <span class="font-medium">83%</span>
+      </div>
+      <div class="grade-card-info">
+        <span>GPA: </span>
+        <span class="font-medium">3.3</span>
+      </div>
+      <div class="grade-card-info">
+        <span>Attendance: </span>
+        <span class="font-medium">90%</span>
+      </div>
+    </div>
+
+    <div class="grade-card">
+      <h2>Operating Systems</h2>
+      <div class="grade-card-info">
+        <span>Final Grade: </span>
+        <span class="font-medium">80%</span>
+      </div>
+      <div class="grade-card-info">
+        <span>GPA: </span>
+        <span class="font-medium">3.0</span>
+      </div>
+      <div class="grade-card-info">
+        <span>Attendance: </span>
+        <span class="font-medium">93%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-white rounded-lg shadow-md p-6 mb-8">
+    <h2 class="text-xl font-bold text-gray-700 mb-6">Detailed Grade Breakdown</h2>
+    
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Course</th>
+            <th>Assignments</th>
+            <th>Quizzes</th>
+            <th>Midterm</th>
+            <th>Final</th>
+            <th>Attendance</th>
+            <th>Grade</th>
+            <th>Feedback</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Web Development</td>
+            <td>90%</td>
+            <td>85%</td>
+            <td>88%</td>
+            <td>92%</td>
+            <td>95%</td>
+            <td>A- (89%)</td>
+            <td>Great job! Improve CSS styling.</td>
+          </tr>
+          <tr>
+            <td>Database Systems</td>
+            <td>85%</td>
+            <td>80%</td>
+            <td>75%</td>
+            <td>88%</td>
+            <td>90%</td>
+            <td>B+ (83%)</td>
+            <td>Good! Focus more on SQL optimization.</td>
+          </tr>
+          <tr>
+            <td>Operating Systems</td>
+            <td>80%</td>
+            <td>78%</td>
+            <td>70%</td>
+            <td>85%</td>
+            <td>93%</td>
+            <td>B (80%)</td>
+            <td>Need to improve process management.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

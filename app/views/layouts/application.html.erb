@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html data-theme="<%= cookies[:theme] if cookies[:theme].present? %>">
+  <head>
+    <title>ThinkHub Academic Portal</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <%= javascript_importmap_tags %>
+    <%= javascript_include_tag "turbo" %>
+  </head>
+  <body>
+    <% if user_signed_in? %>
+      <div class="container">
+        <aside class="sidebar">
+          <%= render "layouts/sidebar" %>
+        </aside>
+        <main class="main-content">
+          <%= render partial: "layouts/nav", locals: { user: @user } %>
+          <%= render "layouts/notice" %>
+          <%= yield %>
+        </main>
+      </div>
+    <% else %>
+      <%= render "layouts/notice" %>
+      <%= yield %>
+    <% end %>
+  </body>
+</html>

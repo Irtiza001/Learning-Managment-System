@@ -1,0 +1,72 @@
+<div class="drawer-side">
+  <label for="my-drawer-2" aria-label="close sidebar" class="drawer-overlay"></label>
+  <ul class="menu lg:pt-6 p-4 w-80 min-h-full bg-base-200 text-base-content">
+    <!-- Sidebar content here -->
+    <div class="sidebar-header">
+      <img src="https://flowbite.com/docs/images/logo.svg" alt="Logo" class="logo" />
+      <p class="portal-title">ThinkHub Academic Portal</p>
+    </div>
+    <nav>
+      <ul>
+        <li>
+          <%= link_to dashboard_path do %>
+            <img src="/assets/home.png" alt="Dashboard" />
+            <span>Dashboard</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to courses_path do %>
+            <img src="/assets/meeting.png" alt="Courses" />
+            <span>Courses</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to attendances_path do %>
+            <img src="/assets/mark.png" alt="Attendance" />
+            <span>Attendance</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to grades_path do %>
+            <img src="/assets/test.png" alt="Grades" />
+            <span>Grades</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to progress_path do %>
+            <img src="/assets/progress.png" alt="Progress" />
+            <span>Progress</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to blogs_path do %>
+            <img src="/assets/register.png" alt="Blogs" />
+            <span>Blogs</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to help_path do %>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-help-circle" style="filter: brightness(0) invert(1); opacity: 0.8; margin-right: 12px;">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+            <span>Help</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to settings_path do %>
+            <img src="/assets/cog.png" alt="Settings" onerror="this.src='/assets/setting.png'" />
+            <span>Settings</span>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "text-red-600" do %>
+            <img src="/assets/logout.png" alt="Sign Out" onerror="this.src='/assets/setting.png'" />
+            <span>Sign Out</span>
+          <% end %>
+        </li>
+      </ul>
+    </nav>
+  </ul>
+</div>

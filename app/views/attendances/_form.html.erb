@@ -1,0 +1,66 @@
+<div class="form-container">
+  <%= form_with(model: attendance) do |form| %>
+    <% if attendance.errors.any? %>
+      <div class="alert alert-danger">
+        <i class="fas fa-exclamation-circle"></i>
+        <div>
+          <h4><%= pluralize(attendance.errors.count, "error") %> prohibited this attendance from being saved:</h4>
+          <ul>
+            <% attendance.errors.each do |error| %>
+              <li><%= error.full_message %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= form.label :date, class: "form-label" %>
+      <%= form.date_field :date, class: "form-control" %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :course_id, class: "form-label" %>
+      <%= form.collection_select :course_id, Course.all, :id, :name,
+                                 { prompt: "Select a course" },
+                                 { class: "form-control", onchange: "updateInstructorName()" } %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :status, class: "form-label" %>
+      <%= form.select :status, [["Present", "present"], ["Absent", "absent"]], { prompt: "Select status" }, { class: "form-control" } %>
+    </div>
+
+    <div class="form-group">
+      <%= form.label :instructor_name, "Instructor", class: "form-label" %>
+      <div id="instructor-display" class="form-control" style="background-color: #f8f9fa;">
+        <%= Course.find_by(id: attendance.course_id)&.instructor_name || "Select a course to see instructor" %>
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <%= form.submit class: "btn btn-primary" %>
+    </div>
+  <% end %>
+</div>
+
+<script>
+function updateInstructorName() {
+  const courseSelect = document.querySelector('select[name="attendance[course_id]"]');
+  const instructorDisplay = document.getElementById('instructor-display');
+  
+  if (courseSelect.value) {
+    fetch(`/courses/${courseSelect.value}.json`)
+      .then(response => response.json())
+      .then(data => {
+        instructorDisplay.textContent = data.instructor_name || "No instructor assigned";
+      })
+      .catch(error => {
+        instructorDisplay.textContent = "Could not load instructor information";
+        console.error('Error fetching instructor data:', error);
+      });
+  } else {
+    instructorDisplay.textContent = "Select a course to see instructor";
+  }
+}
+</script>

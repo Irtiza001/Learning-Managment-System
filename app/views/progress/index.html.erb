@@ -1,0 +1,159 @@
+<div class="w-full">
+  <% if notice.present? %>
+    <div class="alert alert-success">
+      <i class="fas fa-check-circle"></i>
+      <span><%= notice %></span>
+    </div>
+  <% end %>
+
+  <!-- Stats cards row -->
+  <div class="progress-stats-container">
+    <div class="progress-stat-card">
+      <div class="progress-stat-icon">
+        <i class="fas fa-star"></i>
+      </div>
+      <div class="progress-stat-title">Overall GPA</div>
+      <div class="progress-stat-value">3.75</div>
+      <div class="progress-bar">
+        <div class="progress-bar-fill" style="width: 75%;"></div>
+      </div>
+      <div class="progress-bar-caption">4.0 scale</div>
+    </div>
+
+    <div class="progress-stat-card">
+      <div class="progress-stat-icon">
+        <i class="fas fa-clock"></i>
+      </div>
+      <div class="progress-stat-title">Credit Hours</div>
+      <div class="progress-stat-value">72</div>
+      <div class="progress-bar">
+        <div class="progress-bar-fill" style="width: 60%;"></div>
+      </div>
+      <div class="progress-bar-caption">120 required</div>
+    </div>
+
+    <div class="progress-stat-card">
+      <div class="progress-stat-icon">
+        <i class="fas fa-calendar-alt"></i>
+      </div>
+      <div class="progress-stat-title">Current Semester</div>
+      <div class="progress-stat-value">Spring 2025</div>
+      <div class="progress-bar">
+        <div class="progress-bar-fill" style="width: 40%;"></div>
+      </div>
+      <div class="progress-bar-caption">Week 6 of 15</div>
+    </div>
+
+    <div class="progress-stat-card">
+      <div class="progress-stat-icon">
+        <i class="fas fa-check-circle"></i>
+      </div>
+      <div class="progress-stat-title">Courses Passed</div>
+      <div class="progress-stat-value">24</div>
+      <div class="progress-bar">
+        <div class="progress-bar-fill" style="width: 80%;"></div>
+      </div>
+      <div class="progress-bar-caption">30 total</div>
+    </div>
+  </div>
+
+  <!-- Course progress table -->
+  <div class="bg-white rounded-lg shadow-md p-6">
+    <div class="progress-table-header">
+      <div class="progress-table-title">
+        <i class="fas fa-chart-line"></i>
+        <span>Course-wise Progress</span>
+      </div>
+      <a href="#" class="export-button">
+        <i class="fas fa-download"></i>
+        Export Report
+      </a>
+    </div>
+    
+    <div class="table-container">
+      <table>
+        <thead>
+          <tr>
+            <th>Course</th>
+            <th>Instructor</th>
+            <th>Assignments</th>
+            <th>Midterm</th>
+            <th>Final</th>
+            <th>Grade</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>
+              <strong>CS201</strong><br>
+              Data Structures
+            </td>
+            <td>Prof. Smith</td>
+            <td>18/20</td>
+            <td>45/50</td>
+            <td>87/100</td>
+            <td>A</td>
+            <td>
+              <span class="status-passed">
+                <i class="fas fa-check-circle status-icon"></i>
+                Passed
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>CS202</strong><br>
+              Database Systems
+            </td>
+            <td>Prof. Johnson</td>
+            <td>17/20</td>
+            <td>42/50</td>
+            <td>81/100</td>
+            <td>B+</td>
+            <td>
+              <span class="status-passed">
+                <i class="fas fa-check-circle status-icon"></i>
+                Passed
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>CS203</strong><br>
+              Operating Systems
+            </td>
+            <td>Prof. Williams</td>
+            <td>15/20</td>
+            <td>39/50</td>
+            <td>70/100</td>
+            <td>B-</td>
+            <td>
+              <span class="status-progress">
+                <i class="fas fa-sync-alt status-icon"></i>
+                In Progress
+              </span>
+            </td>
+          </tr>
+          <tr>
+            <td>
+              <strong>CS204</strong><br>
+              Algorithms
+            </td>
+            <td>Prof. Brown</td>
+            <td>16/20</td>
+            <td>44/50</td>
+            <td>92/100</td>
+            <td>A</td>
+            <td>
+              <span class="status-passed">
+                <i class="fas fa-check-circle status-icon"></i>
+                Passed
+              </span>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div> 

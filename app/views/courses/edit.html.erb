@@ -1,0 +1,13 @@
+<div class="detail-container">
+  <div class="detail-header">
+    <h1>Editing course</h1>
+  </div>
+
+  <%= render "form", course: @course %>
+
+  <div class="detail-actions">
+    <%= link_to course_path(@course), class: "btn btn-primary" do %>
+      <i class="fas fa-eye mr-2"></i>View
+    <% end %>
+  </div>
+</div>
