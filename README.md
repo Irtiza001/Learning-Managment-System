@@ -1,15 +1,11 @@
-Here’s a clean and professional `README.md` for your **Learning Management System (LMS)** built with **Ruby on Rails**:
 
----
-
-````markdown
-# 📚 Learning Management System (LMS)
+📚 Learning Management System (LMS)
 
 A web-based Learning Management System (LMS) built with **Ruby on Rails**, designed to help institutions, instructors, and students manage and interact with courses online.
 
 ---
 
-## 🚀 Features
+🚀 Features
 
 - 👨‍🏫 Role-based user access (Admin, Teacher, Student)
 - 📘 Course creation and enrollment
@@ -22,7 +18,7 @@ A web-based Learning Management System (LMS) built with **Ruby on Rails**, desig
 
 ---
 
-## 🔧 Tech Stack
+🔧 Tech Stack
 
 - **Backend:** Ruby on Rails
 - **Database:** PostgreSQL / SQLite3 (dev)
@@ -31,7 +27,7 @@ A web-based Learning Management System (LMS) built with **Ruby on Rails**, desig
 
 ---
 
-## 📦 Installation
+📦 Installation
 
 1. **Clone the repository**
    ```bash
@@ -64,7 +60,7 @@ A web-based Learning Management System (LMS) built with **Ruby on Rails**, desig
 
 ---
 
-## 📁 Folder Structure
+📁 Folder Structure
 
 * `/app` – MVC structure with models, views, and controllers
 * `/db` – Migrations and schema
@@ -73,7 +69,7 @@ A web-based Learning Management System (LMS) built with **Ruby on Rails**, desig
 
 ---
 
-## 🛠️ Future Improvements
+🛠️ Future Improvements
 
 * Live classes with video integration
 * Quiz and grading modules
@@ -82,12 +78,12 @@ A web-based Learning Management System (LMS) built with **Ruby on Rails**, desig
 
 ---
 
-## 🤝 Contributing
+🤝 Contributing
 
 Contributions are welcome! Please fork the repo and submit a pull request.
 
 ---
 
-## 📜 License
+📜 License
 
 This project is open-source and available under the [MIT License](LICENSE).
